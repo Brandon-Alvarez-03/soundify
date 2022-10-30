@@ -1,21 +1,21 @@
-import React from 'react'
+import {useState, useEffect} from "react";
+import SpotifyPlayer from "react-spotify-web-playback";
 
-function Player() {
-//   <script src="https://sdk.scdn.co/spotify-player.js"></script>;
-// window.onSpotifyWebPlaybackSDKReady = () => {
-//   const token =
-//     "BQCxfMCBWGBptw1L5_ugoRIfpB0lr7P_FDuX229R32i_ALhEPfuVPZbp4wjAa0aKcyP67jFsDXMX9t8zqopYK9h52RsDyRsoby7VwLpobp4LLcOtpgWyU5BmuCY_dImAEYRUF-epBSoskGDSQPczxetSm8SUnSMmPZ6TtV2MgKMd-DFlDlGPv_Ebi-7tiWp0jD4";
-//   const player = new Spotify.Player({
-//     name: "Web Playback SDK Quick Start Player",
-//     getOAuthToken: (cb) => {
-//       cb(token);
-//     },
-//     volume: 0.5,
-//   });
-// };
+export default function Player({accessToken, trackUri}) {
+  const [play, setPlay] = useState(false);
+
+  useEffect(() => setPlay(true), [trackUri]);
+
+  if (!accessToken) return null;
   return (
-    <div>Player</div>
-  )
+    <SpotifyPlayer
+      token={accessToken}
+      showSaveIcon
+      callback={(state) => {
+        if (!state.isPlaying) setPlay(false);
+      }}
+      play={play}
+      uris={trackUri ? [trackUri] : []}
+    />
+  );
 }
-
-export default Player
