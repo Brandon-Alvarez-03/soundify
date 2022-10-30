@@ -1,0 +1,214 @@
+/* .App {
+  text-align: center;
+  height: 100vh;
+  background-color: #121212;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #ffffff;
+} */
+
+.App {
+  text-align: center;
+  height: 100vh;
+  background-color: #121212;
+  color: #ffffff;
+
+  font-family: var(
+    --font-family,
+    CircularSp,
+    CircularSp-Arab,
+    CircularSp-Hebr,
+    CircularSp-Cyrl,
+    CircularSp-Grek,
+    CircularSp-Deva,
+    var(--fallback-fonts, sans-serif)
+  );
+
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 75px 1fr 90px;
+  grid-template-areas:
+    "sb nav"
+    "sb main"
+    "ft ft";
+}
+
+/* .App * {
+  border: 1px solid rgba(250, 250, 250, 0.4);
+} */
+
+.nav {
+  grid-area: nav;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: space-between; */
+  background-color: rgba(22, 22, 22, 0.4);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav span,
+.nav div {
+  margin: 15px 0px auto 20px;
+}
+
+.nav span {
+  background-color: rgba(22, 22, 22, 0.5);
+  border-radius: 50%;
+  padding: 4px;
+}
+
+.account {
+  position: absolute;
+  right: 35px;
+  top: 7px;
+}
+
+.sidebar {
+  z-index: 2;
+  grid-area: sb;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  /* font-size: calc(10px + 2vmin); */
+  background-color: #000000;
+}
+
+.sidebar * {
+  margin: 5px 0 10px 12px;
+  text-align: left;
+  width: 90%;
+}
+
+.top-links {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: space-evenly;
+  height: 45%;
+  margin-bottom: 28px;
+  border-bottom: 2px solid #282828;
+}
+
+.link-box {
+  margin-left: 0;
+  margin-bottom: 0;
+  color: #ffffff;
+}
+
+.bottom-links {
+  height: 60%;
+  margin-top: -20px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.bottom-links * {
+  margin-bottom: 15px;
+}
+
+.main {
+  margin-top: -110px;
+  z-index: 1;
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(#1cd15d, #161616 13%, #141414 15%);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.top-6-container {
+  font-size: calc(10px + 2vmin);
+  width: 98%;
+  margin: 110px 0 20px 25px;
+  text-align: left;
+}
+
+.greeting {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 10px 0 10px 0;
+}
+
+.recommendation {
+  font-size: 23px;
+  font-weight: 700;
+  margin: 10px 0 10px 0;
+}
+
+.top-6 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  /* be sure to add the css for each top card as a styled div */
+}
+
+.top-6 * {
+  height: 80px;
+  min-width: 300px;
+  /* max-width: 48%; */
+  flex: 1;
+  margin: 10px 10px 10px 0px;
+}
+
+.songs-container {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* justify-content: space-around; */
+  /* font-size: calc(10px + 2vmin); */
+  width: 98%;
+  margin: 10px 0 20px 27px;
+  text-align: left;
+}
+
+.song-row {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0 25px 0;
+  overflow-x: scroll;
+}
+
+.song-card {
+  height: 240px;
+  min-width: 195px;
+  margin: 0px 35px 0px 0px;
+}
+
+.footer {
+  z-index: 2;
+  grid-area: ft;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: calc(10px + 2vmin);
+  background-color: #181818;
+}
+
+.footer * {
+  margin: 0 20px 0 20px;
+}
+
+.line {
+  display: inline-flex;
+  margin: auto;
+}
+
+.icon-description {
+  padding-top: 5px;
+  margin-left: -95px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: inherit;
+}
